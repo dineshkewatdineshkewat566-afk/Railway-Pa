@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#121212"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Railway PA"
+            android:textColor="#FFC107"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etTrainNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="Train number (e.g. 12301)"
+            android:inputType="number"
+            android:maxLength="6"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#777777" />
+
+        <EditText
+            android:id="@+id/etTrainName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Train name (e.g. Rajdhani Express)"
+            android:inputType="textCapWords"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#777777" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/etOrigin"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="From"
+                android:inputType="textCapWords"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#777777" />
+
+            <EditText
+                android:id="@+id/etDest"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="To"
+                android:inputType="textCapWords"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#777777" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/etVia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Via (e.g. Kanpur)"
+            android:inputType="textCapWords"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#777777" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/etStation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:hint="Station"
+                android:inputType="textCapWords"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#777777" />
+
+            <EditText
+                android:id="@+id/etPlatform"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Platform"
+                android:inputType="number"
+                android:maxLength="2"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#777777" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Announcement type"
+            android:textColor="#FFC107" />
+
+        <RadioGroup
+            android:id="@+id/rgType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/rbArriving"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Arriving"
+                android:textColor="#FFFFFF" />
+
+            <RadioButton
+                android:id="@+id/rbDeparting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Departing (ready to depart)"
+                android:textColor="#FFFFFF" />
+
+            <RadioButton
+                android:id="@+id/rbDelayed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delayed"
+                android:textColor="#FFFFFF" />
+
+            <RadioButton
+                android:id="@+id/rbPlatformChange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Platform change"
+                android:textColor="#FFFFFF" />
+        </RadioGroup>
+
+        <LinearLayout
+            android:id="@+id/delayRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/etDelayH"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Delay hours"
+                android:inputType="number"
+                android:maxLength="2"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#777777" />
+
+            <EditText
+                android:id="@+id/etDelayM"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Delay minutes"
+                android:inputType="number"
+                android:maxLength="2"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#777777" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Language"
+            android:textColor="#FFC107" />
+
+        <RadioGroup
+            android:id="@+id/rgLang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rbBoth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Hindi + Eng"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp" />
+
+            <RadioButton
+                android:id="@+id/rbHindi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hindi"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp" />
+
+            <RadioButton
+                android:id="@+id/rbEnglish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="English"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp" />
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Live preview"
+            android:textColor="#FFC107" />
+
+        <TextView
+            android:id="@+id/tvPreview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#1E1E1E"
+            android:minHeight="100dp"
+            android:padding="12dp"
+            android:textColor="#E0E0E0"
+            android:textSize="15sp" />
+
+        <CheckBox
+            android:id="@+id/cbLoop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Repeat / loop"
+            android:textColor="#FFFFFF" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnPlay"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Play" />
+
+            <Button
+                android:id="@+id/btnStop"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Stop" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnSample"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Play reference sample (sample_full)" />
+
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="6dp"
+            android:text="Ready"
+            android:textColor="#888888"
+            android:textSize="12sp" />
+    </LinearLayout>
+</ScrollView><?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#121212"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Railway PA"
+            android:textColor="#FFC107"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etTrainNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="Train number (e.g. 12301)"
+            android:inputType="number"
+            android:maxLength="6"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#777777" />
+
+        <EditText
+            android:id="@+id/etTrainName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Train name (e.g. Rajdhani Express)"
+            android:inputType="textCapWords"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#777777" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/etOrigin"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="From"
+                android:inputType="textCapWords"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#777777" />
+
+            <EditText
+                android:id="@+id/etDest"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="To"
+                android:inputType="textCapWords"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#777777" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/etVia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Via (e.g. Kanpur)"
+            android:inputType="textCapWords"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#777777" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/etStation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:hint="Station"
+                android:inputType="textCapWords"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#777777" />
+
+            <EditText
+                android:id="@+id/etPlatform"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Platform"
+                android:inputType="number"
+                android:maxLength="2"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#777777" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Announcement type"
+            android:textColor="#FFC107" />
+
+        <RadioGroup
+            android:id="@+id/rgType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/rbArriving"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Arriving"
+                android:textColor="#FFFFFF" />
+
+            <RadioButton
+                android:id="@+id/rbDeparting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Departing (ready to depart)"
+                android:textColor="#FFFFFF" />
+
+            <RadioButton
+                android:id="@+id/rbDelayed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delayed"
+                android:textColor="#FFFFFF" />
+
+            <RadioButton
+                android:id="@+id/rbPlatformChange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Platform change"
+                android:textColor="#FFFFFF" />
+        </RadioGroup>
+
+        <LinearLayout
+            android:id="@+id/delayRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/etDelayH"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Delay hours"
+                android:inputType="number"
+                android:maxLength="2"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#777777" />
+
+            <EditText
+                android:id="@+id/etDelayM"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Delay minutes"
+                android:inputType="number"
+                android:maxLength="2"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#777777" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Language"
+            android:textColor="#FFC107" />
+
+        <RadioGroup
+            android:id="@+id/rgLang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rbBoth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Hindi + Eng"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp" />
+
+            <RadioButton
+                android:id="@+id/rbHindi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hindi"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp" />
+
+            <RadioButton
+                android:id="@+id/rbEnglish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="English"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp" />
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Live preview"
+            android:textColor="#FFC107" />
+
+        <TextView
+            android:id="@+id/tvPreview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#1E1E1E"
+            android:minHeight="100dp"
+            android:padding="12dp"
+            android:textColor="#E0E0E0"
+            android:textSize="15sp" />
+
+        <CheckBox
+            android:id="@+id/cbLoop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Repeat / loop"
+            android:textColor="#FFFFFF" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnPlay"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Play" />
+
+            <Button
+                android:id="@+id/btnStop"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Stop" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnSample"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Play reference sample (sample_full)" />
+
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="6dp"
+            android:text="Ready"
+            android:textColor="#888888"
+            android:textSize="12sp" />
+    </LinearLayout>
+</ScrollView>
